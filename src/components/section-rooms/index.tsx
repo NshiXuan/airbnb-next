@@ -2,10 +2,10 @@ import React from 'react'
 import { memo, ReactElement } from 'react'
 import type { FC } from 'react'
 import RoomItem from '../room-item'
-import { HomeGoodPriceItem } from '@/service/modules/home.type'
+import { HomeItem } from '@/service/modules/home.type'
 
 export interface IProps {
-  rooms?: HomeGoodPriceItem[]
+  rooms?: HomeItem[]
   width?: '20%' | '25%' | '33%'
 }
 

@@ -4,10 +4,10 @@ export interface RoomsType {
   type: string
   title: string
   subtitle: string
-  list: HomeGoodPriceItem[]
+  list: HomeItem[]
 }
 
-export interface HomeGoodPriceItem {
+export interface HomeItem {
   id: string
   picture_url: string
   verify_info: VerifyInfo
@@ -44,3 +44,39 @@ export interface BottomInfo {
   font_size: string
   visibility: string
 }
+
+// 折扣、热门推荐数据的类型
+export interface DiscountOrHotHomeType {
+  _id: string
+  type: string
+  title: string
+  subtitle: string
+  dest_address: DestAddress[]
+  dest_list: DestList
+}
+
+export interface DestAddress {
+  name: string
+  homes: string[]
+}
+
+export interface DestList {
+  佛山: HomeItem[]
+  成都: HomeItem[]
+  广州: HomeItem[]
+  重庆: HomeItem[]
+  长沙: HomeItem[]
+  杭州: HomeItem[]
+  西安: HomeItem[]
+  深圳: HomeItem[]
+}
+
+export type NamesType =
+  | '佛山'
+  | '成都'
+  | '广州'
+  | '重庆'
+  | '长沙'
+  | '杭州'
+  | '西安'
+  | '深圳'

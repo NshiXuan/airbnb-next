@@ -19,3 +19,7 @@
 .boxShadow {
   @apply transition  duration-300 ease-in-out hover:shadow-lg;
 }
+
+.active {
+  @apply bg-secondary-color text-white;
+}

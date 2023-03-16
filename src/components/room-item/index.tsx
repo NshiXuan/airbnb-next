@@ -1,14 +1,14 @@
 import React from 'react'
 import { memo, ReactElement } from 'react'
 import type { FC } from 'react'
-import { HomeGoodPriceItem } from '@/service/modules/home.type'
+import { HomeItem } from '@/service/modules/home.type'
 import Image from 'next/image'
 
 import { Rating } from '@mui/material'
 
 export interface IProps {
-  itemData: HomeGoodPriceItem
-  width?: '20%' | '25%' | '33%'
+  itemData: HomeItem
+  width?: '20%' | '25%' | '33%' // 展示的宽度
 }
 
 // memo浅层比较

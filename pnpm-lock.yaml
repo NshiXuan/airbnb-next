@@ -11,6 +11,7 @@ specifiers:
   '@types/react-dom': 18.0.11
   autoprefixer: ^10.4.14
   axios: 1.2.2
+  classnames: ^2.3.2
   commitizen: ^4.3.0
   cz-conventional-changelog: ^3.3.0
   eslint: 8.36.0
@@ -39,6 +40,7 @@ dependencies:
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   axios: 1.2.2
+  classnames: 2.3.2
   eslint: 8.36.0
   eslint-config-next: 13.2.4_vgl77cfdswitgr47lm5swmv43m
   next: 13.2.4_b7eik3blo2x47smm2jwaxpjfoq
@@ -1173,6 +1175,10 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+
+  /classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: false
 
   /cli-cursor/3.1.0:
     resolution: {integrity: sha512-I/zHAwsKf9FqGoXM4WWRACob9+SNukZTd94DWF57E4toouRulbCxcUh6RKUEOQlYTHJnzkPMySvPNaaSLNfLZw==}
