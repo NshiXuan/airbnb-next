@@ -8,7 +8,7 @@ export interface IProps {
 }
 
 // memo浅层比较
-const SectionTabs: FC<IProps> = memo(function (props) {
+const SectionTabs: FC<IProps> = function (props) {
   const { tabNames, tabClick } = props
 
   // 定义选中的标签
@@ -21,12 +21,13 @@ const SectionTabs: FC<IProps> = memo(function (props) {
   }
 
   return (
+    // overflow-x-auto
     <div className="flex   ">
       {tabNames?.map((item, index) => {
         return (
           <div
             className="
-               box-border basis-[120px]  w-fit  py-[14px] px-[16px] mr-4 text-[17px] text-center border whitespace-nowrap rounded cursor-pointer boxShadow
+               box-border basis-[120px] flex-shrink-0 py-[14px] px-[16px] mr-4 text-[17px] text-center border whitespace-nowrap rounded cursor-pointer boxShadow
             "
             style={
               currentIndex === index
@@ -42,7 +43,7 @@ const SectionTabs: FC<IProps> = memo(function (props) {
       })}
     </div>
   )
-})
+}
 
 export default SectionTabs
 
