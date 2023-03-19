@@ -16,7 +16,7 @@ const AppFooter: FC<IProps> = memo(function (props) {
     <div className="mt-[100px] border-t">
       <div className="wrap py-12 px-6 ">
         {/* footer的每一项 */}
-        <div className="flex justify-around ">
+        <div className="flex justify-around">
           {footerData.map((item) => {
             return (
               <div key={item.name}>
@@ -40,8 +40,7 @@ const AppFooter: FC<IProps> = memo(function (props) {
 
         {/* 声明 */}
         <div className=" text-center p-5 mt-[30px] text-[#767676] border-t">
-          © 2022 Airbnb, Inc. All rights reserved.条款 · 隐私政策 · 网站地图 ·
-          全国旅游投诉渠道 12301
+          © 2023 China. All rights reserved by wqx · 此网站为演示服务端渲染Demo实践，不涉及实际购买，请您知晓
         </div>
       </div>
     </div>

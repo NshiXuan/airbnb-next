@@ -14,11 +14,17 @@ const HeaderCenter: FC<IProps> = memo(function (props) {
   return (
     <div>
       <div className="flex justify-between items-center w-[300px] h-12 p-2 box-border border rounded-3xl cursor-pointer boxShadow">
-        <div className="px-4 text-font-secondary-color font-[600]">
-          搜索房源和体验
+        <div className="px-4 text-font-secondary-color font-[400]">
+          搜索您想要的商品
         </div>
-
-        {/* 搜索Icon */}
+        {/* <input
+              aria-label="搜索"
+              type="text"
+              className="px-4 text-font-secondary-color font-[600]"
+              // onChange={(e) => setSearchValue(e.target.value)}
+              placeholder="搜索您想要的商品"
+              // className="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
+            /> */}
         <div className="flex items-center justify-center w-8 h-8 text-[#eee]  rounded-full bg-primary-color">
           <IconSearchBar />
         </div>

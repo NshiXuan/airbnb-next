@@ -3,7 +3,7 @@ import type { FC } from 'react'
 import { memo, useState } from 'react'
 
 export interface IProps {
-  tabNames: string[] | undefined
+  tabNames: any[] | undefined
   tabClick: (index: number, name: NamesType) => void
 }
 
@@ -34,10 +34,12 @@ const SectionTabs: FC<IProps> = function (props) {
                 ? { background: '#00848A', color: '#fff' }
                 : {}
             }
-            key={item}
-            onClick={(e) => itemClickHandle(index, item)}
+            key={item?.key}
+            onClick={(e) => itemClickHandle(index, item?.key)}
           >
-            {item}
+            {/* {item?.data?.weather?.date} */}
+            分类
+            
           </div>
         )
       })}

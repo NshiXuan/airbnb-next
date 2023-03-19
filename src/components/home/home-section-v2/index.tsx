@@ -21,7 +21,7 @@ const HomeSectionV2: FC<IProps> = memo(function (props) {
         subTitle={homeSectionData?.subtitle}
       />
       <SectionRooms rooms={homeSectionData?.list} />
-      <SectionFooter />
+      {/* <SectionFooter /> */}
     </div>
   )
 })

@@ -7,16 +7,18 @@ import { HomeItem } from '@/service/modules/home.type'
 export interface IProps {
   rooms?: HomeItem[]
   width?: '20%' | '25%' | '33%'
+  source?: number;
 }
 
 // memo浅层比较
 const SectionRooms: FC<IProps> = memo(function (props) {
-  const { rooms, width } = props
+  const { rooms, width, source} = props
+  console.log(rooms, JSON.stringify(rooms), 'xl')
 
   return (
-    <div className="flex flex-wrap -mx-2">
-      {rooms?.slice(0, 8).map((item: any) => {
-        return <RoomItem itemData={item} width={width} key={item.id} />
+    <div className="flex flex-wrap ml-16">
+      {rooms?.data?.hotProduct?.slice(0,6)?.map((item: any) => {
+        return <RoomItem itemData={item} width={ width} key={item.id} source={source}/>
       })}
     </div>
   )

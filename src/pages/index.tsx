@@ -9,6 +9,7 @@ import {
 
 import HomeSectionV1 from '@/components/home/home-section-v1'
 import HomeSectionV2 from '@/components/home/home-section-v2'
+import Slider from '@/components/home/slider'
 import { DiscountOrHotHomeType, RoomsType } from '@/service/modules/home.type'
 
 export interface IProps {
@@ -23,23 +24,17 @@ export default function Home(props: IProps) {
 
   return (
     <>
-      <main>
-        {/* banner */}
-        <div className=" bg-[url('~/src/assets/img/cover_01.jpeg')] bg-cover bg-black  h-[529px] "></div>
-
+      <main style={{overflowX: 'hidden'}}>
+        <Slider/>
         {/* 内容 */}
         <div className="wrap">
-          {/* 折扣的房源 */}
           <HomeSectionV1 homeSectionData={discountInfo} />
-
           {/* 热门推荐的房源 */}
-          <HomeSectionV1 homeSectionData={hotInfo} />
-
+          {/* <HomeSectionV1 homeSectionData={hotInfo} /> */}
           {/* 高性价比房源 */}
-          <HomeSectionV2 homeSectionData={goodPriceInfo} />
-
+          {/* <HomeSectionV2 homeSectionData={goodPriceInfo} /> */}
           {/* 高评分房源 */}
-          <HomeSectionV2 homeSectionData={highScoreInfo} />
+          {/* <HomeSectionV2 homeSectionData={highScoreInfo} /> */}
         </div>
       </main>
     </>

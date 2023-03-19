@@ -13,7 +13,7 @@ const SectionHeader: FC<IProps> = memo(function (props) {
   const { title, subTitle } = props
 
   return (
-    <div className=" text-font-secondary-color">
+    <div className=" text-font-secondary-color pt-20">
       <h2 className="text-[22px] font-[700] mb-4 ">{title}</h2>
       {subTitle && <div className="text-[16px] mb-5">{subTitle}</div>}
     </div>

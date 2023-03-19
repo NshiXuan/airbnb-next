@@ -14,7 +14,7 @@ const SectionFooter: FC<IProps> = function (props) {
 
   let showMessage = '显示全部'
   if (name) {
-    showMessage = `显示更多${name}房源`
+    showMessage = `显示更多${name}`
   }
 
   return (

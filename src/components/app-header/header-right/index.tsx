@@ -70,8 +70,7 @@ const HeaderRight: FC<IProps> = memo(function (props) {
             </div>
 
             <div className="py-[10px]">
-              <div className={style.item}>出租房源</div>
-              <div className={style.item}>开展体验</div>
+              <div className={style.item}>客服中心</div>
               <div className={style.item}>帮助</div>
             </div>
           </div>
