@@ -3,14 +3,10 @@ import { memo, ReactElement } from 'react'
 import type { FC } from 'react'
 import IconLogo from '@/assets/svg/icon_logo'
 
-export interface IProps {
-  children?: ReactElement
-}
+export interface IProps {}
 
 // memo浅层比较
-const HeaderLeft: FC<IProps> = memo(function (props) {
-  const { children } = props
-
+const HeaderLeft: FC<IProps> = function (props) {
   return (
     <div className="flex-1  flex text-primary-color  ml-5">
       <div className="cursor-pointer">
@@ -18,7 +14,7 @@ const HeaderLeft: FC<IProps> = memo(function (props) {
       </div>
     </div>
   )
-})
+}
 
 export default HeaderLeft
 

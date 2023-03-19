@@ -4,7 +4,8 @@ import {
   getHomeDiscountData,
   getHomeGoodPriceData,
   getHomeHighScoreData,
-  getHomeHotRecommendData
+  getHomeHotRecommendData,
+  getHomeLongforData
 } from '@/service/modules/home'
 
 import HomeSectionV1 from '@/components/home/home-section-v1'
@@ -16,10 +17,12 @@ export interface IProps {
   highScoreInfo?: RoomsType // 高评分房源
   discountInfo?: DiscountOrHotHomeType // 折扣后的房源
   hotInfo?: DiscountOrHotHomeType // 热门推荐的房源
+  longforInfo?: any // 向往城市
 }
 
 export default function Home(props: IProps) {
-  const { goodPriceInfo, highScoreInfo, discountInfo, hotInfo } = props
+  const { goodPriceInfo, highScoreInfo, discountInfo, hotInfo, longforInfo } =
+    props
 
   return (
     <>
@@ -60,12 +63,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   // 获取热门推荐房源
   const res4 = await getHomeHotRecommendData()
 
+  // 获取向往城市
+  const res5 = await getHomeLongforData()
+  console.log(res5)
+
   return {
     props: {
       goodPriceInfo: res1,
       highScoreInfo: res2,
       discountInfo: res3,
-      hotInfo: res4
+      hotInfo: res4,
+      longforInfo: res5
     }
   }
 }

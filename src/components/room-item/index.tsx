@@ -8,11 +8,11 @@ import { Rating } from '@mui/material'
 
 export interface IProps {
   itemData: HomeItem
-  width?: '20%' | '25%' | '33%' // 展示的宽度
+  width?: '20%' | '25%' | '33.33%' // 展示的宽度
 }
 
 // memo浅层比较
-const RoomItem: FC<IProps> = memo(function (props) {
+const RoomItem: FC<IProps> = function (props) {
   const { itemData, width = '25%' } = props
 
   return (
@@ -60,7 +60,7 @@ const RoomItem: FC<IProps> = memo(function (props) {
       </div>
     </div>
   )
-})
+}
 
 export default RoomItem
 

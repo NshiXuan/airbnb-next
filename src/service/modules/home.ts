@@ -21,3 +21,8 @@ export const getHomeDiscountData = () => {
 export const getHomeHotRecommendData = () => {
   return sxRequest.get<DiscountOrHotHomeType>('/home/hotrecommenddest')
 }
+
+// 获取向往城市
+export const getHomeLongforData = () => {
+  return sxRequest.get<any>('/home/longfor')
+}

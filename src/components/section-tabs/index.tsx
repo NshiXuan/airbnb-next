@@ -1,6 +1,6 @@
 import { NamesType } from '@/service/modules/home.type'
-import type { FC } from 'react'
-import { memo, useState } from 'react'
+import { FC, memo, useState } from 'react'
+import ScrollView from '../scroll-view'
 
 export interface IProps {
   tabNames: string[] | undefined
@@ -21,26 +21,27 @@ const SectionTabs: FC<IProps> = function (props) {
   }
 
   return (
-    // overflow-x-auto
-    <div className="flex   ">
-      {tabNames?.map((item, index) => {
-        return (
-          <div
-            className="
-               box-border basis-[120px] flex-shrink-0 py-[14px] px-[16px] mr-4 text-[17px] text-center border whitespace-nowrap rounded cursor-pointer boxShadow
+    <div>
+      <ScrollView>
+        {tabNames?.map((item, index) => {
+          return (
+            <div
+              className="
+               box-border basis-[120px] flex-shrink-0 py-[14px] px-[16px] mr-4 text-[17px] text-center border rounded whitespace-nowrap  cursor-pointer boxShadow
             "
-            style={
-              currentIndex === index
-                ? { background: '#00848A', color: '#fff' }
-                : {}
-            }
-            key={item}
-            onClick={(e) => itemClickHandle(index, item)}
-          >
-            {item}
-          </div>
-        )
-      })}
+              style={
+                currentIndex === index
+                  ? { background: '#00848A', color: '#fff' }
+                  : {}
+              }
+              key={item}
+              onClick={(e) => itemClickHandle(index, item)}
+            >
+              {item}
+            </div>
+          )
+        })}
+      </ScrollView>
     </div>
   )
 }

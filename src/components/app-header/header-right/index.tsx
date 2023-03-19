@@ -15,7 +15,7 @@ export interface IProps {
 }
 
 // memo浅层比较
-const HeaderRight: FC<IProps> = memo(function (props) {
+const HeaderRight: FC<IProps> = function (props) {
   // 1.定义展示隐藏面板的变量
   const [showPanel, setShowPanel] = useState(false)
 
@@ -79,7 +79,7 @@ const HeaderRight: FC<IProps> = memo(function (props) {
       </div>
     </div>
   )
-})
+}
 
 export default HeaderRight
 

@@ -1,0 +1,13 @@
+.control {
+  @apply absolute z-10 flex justify-center items-center w-[28px] h-[28px] rounded-full text-center border shadow-sm  bg-white;
+}
+
+.left {
+  @apply left-0 top-1/2 cursor-pointer;
+  transform: translate(-50%, -50%);
+}
+
+.right {
+  @apply right-0 top-1/2 cursor-pointer;
+  transform: translate(50%, -50%);
+}

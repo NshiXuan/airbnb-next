@@ -1,16 +1,14 @@
-import React from 'react'
-import { memo, ReactElement } from 'react'
-import type { FC } from 'react'
-import RoomItem from '../room-item'
 import { HomeItem } from '@/service/modules/home.type'
+import { FC } from 'react'
+import RoomItem from '../room-item'
 
 export interface IProps {
   rooms?: HomeItem[]
-  width?: '20%' | '25%' | '33%'
+  width?: '20%' | '25%' | '33.33%'
 }
 
 // memo浅层比较
-const SectionRooms: FC<IProps> = memo(function (props) {
+const SectionRooms: FC<IProps> = function (props) {
   const { rooms, width } = props
 
   return (
@@ -20,7 +18,7 @@ const SectionRooms: FC<IProps> = memo(function (props) {
       })}
     </div>
   )
-})
+}
 
 export default SectionRooms
 
