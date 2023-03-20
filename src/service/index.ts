@@ -1,8 +1,8 @@
 import axios from 'axios'
 import type { AxiosRequestConfig, AxiosInstance, AxiosResponse } from 'axios'
 
-// const BASE_URL = "http://codercba.com:1888/airbnb/api"
-const BASE_URL = "http://codercba.com:9060/music-next/api"
+const BASE_URL = "http://codercba.com:1888/airbnb/api"
+// const BASE_URL = "http://codercba.com:9060/music-next/api"
 const TIME_OUT = 1000 * 5
 
 export interface IResultData<T> {

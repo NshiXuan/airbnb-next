@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { memo, ReactElement } from 'react'
 import type { FC } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 
 // SVG
+import IconAvatar from '@/assets/svg/icon_avatar'
 import IconGlobal from '@/assets/svg/icon_global'
 import IconMenu from '@/assets/svg/icon_menu'
-import IconAvatar from '@/assets/svg/icon_avatar'
 
 // 引入样式 import导入需要有module.scss后缀
 import style from './style.module.scss'

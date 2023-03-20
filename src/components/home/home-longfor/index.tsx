@@ -1,17 +1,26 @@
-import React from 'react'
-import { memo, ReactNode } from 'react'
+import LongForItem from '@/components/longfor-item'
+import ScrollView from '@/components/scroll-view'
+import SectionHeader from '@/components/section-header'
+import { LongForType } from '@/service/modules/home.type'
 import type { FC } from 'react'
 
 export interface IProps {
-  children?: ReactNode
+  infoData?: LongForType
 }
 
 const HomeLongFor: FC<IProps> = function (props) {
-  const { children } = props
+  const { infoData } = props
 
   return (
-    <div>
-      <h2>HomeLongFor</h2>
+    <div className="mt-[50px]">
+      <SectionHeader title={infoData?.title} subTitle={infoData?.subtitle} />
+      <div className="flex -mx-2">
+        <ScrollView>
+          {infoData?.list.map((item) => {
+            return <LongForItem itemData={item} />
+          })}
+        </ScrollView>
+      </div>
     </div>
   )
 }

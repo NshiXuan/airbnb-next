@@ -1,6 +1,6 @@
 // import sxRequest, { IResultData } from '../index'
 import sxRequest from '../fetch'
-import { DiscountOrHotHomeType, RoomsType } from './home.type'
+import { DiscountOrHotHomeType, LongForType, RoomsType } from './home.type'
 
 // 请求高性价比房源数据
 export const getHomeGoodPriceData = () => {
@@ -24,5 +24,5 @@ export const getHomeHotRecommendData = () => {
 
 // 获取向往城市
 export const getHomeLongforData = () => {
-  return sxRequest.get<any>('/home/longfor')
+  return sxRequest.get<LongForType>('/home/longfor')
 }

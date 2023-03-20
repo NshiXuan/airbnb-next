@@ -1,7 +1,5 @@
-import React from 'react'
-import { memo, ReactElement } from 'react'
-import type { FC } from 'react'
 import IconLogo from '@/assets/svg/icon_logo'
+import type { FC } from 'react'
 
 export interface IProps {}
 

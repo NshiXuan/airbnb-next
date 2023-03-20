@@ -80,3 +80,19 @@ export type NamesType =
   | '杭州'
   | '西安'
   | '深圳'
+
+// 向往城市数据类型
+export interface LongForType {
+  _id: string
+  title: string
+  subtitle: string
+  type: string
+  list: LongItemType[]
+}
+
+export interface LongItemType {
+  city: string
+  price: string
+  picture_url: string
+  image_url: string
+}

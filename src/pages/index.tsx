@@ -10,14 +10,19 @@ import {
 
 import HomeSectionV1 from '@/components/home/home-section-v1'
 import HomeSectionV2 from '@/components/home/home-section-v2'
-import { DiscountOrHotHomeType, RoomsType } from '@/service/modules/home.type'
+import {
+  DiscountOrHotHomeType,
+  LongForType,
+  RoomsType
+} from '@/service/modules/home.type'
+import HomeLongFor from '@/components/home/home-longfor'
 
 export interface IProps {
   goodPriceInfo?: RoomsType // 高性价比房源
   highScoreInfo?: RoomsType // 高评分房源
   discountInfo?: DiscountOrHotHomeType // 折扣后的房源
   hotInfo?: DiscountOrHotHomeType // 热门推荐的房源
-  longforInfo?: any // 向往城市
+  longforInfo?: LongForType // 向往城市
 }
 
 export default function Home(props: IProps) {
@@ -37,6 +42,9 @@ export default function Home(props: IProps) {
 
           {/* 热门推荐的房源 */}
           <HomeSectionV1 homeSectionData={hotInfo} />
+
+          {/* 向往的城市 */}
+          <HomeLongFor infoData={longforInfo} />
 
           {/* 高性价比房源 */}
           <HomeSectionV2 homeSectionData={goodPriceInfo} />
