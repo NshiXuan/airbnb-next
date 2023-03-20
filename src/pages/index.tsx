@@ -5,7 +5,8 @@ import {
   getHomeGoodPriceData,
   getHomeHighScoreData,
   getHomeHotRecommendData,
-  getHomeLongforData
+  getHomeLongforData,
+  getHomePlusData
 } from '@/service/modules/home'
 
 import HomeSectionV1 from '@/components/home/home-section-v1'
@@ -16,6 +17,7 @@ import {
   RoomsType
 } from '@/service/modules/home.type'
 import HomeLongFor from '@/components/home/home-longfor'
+import HomeSectionV3 from '@/components/home/home-section-v3'
 
 export interface IProps {
   goodPriceInfo?: RoomsType // 高性价比房源
@@ -23,11 +25,18 @@ export interface IProps {
   discountInfo?: DiscountOrHotHomeType // 折扣后的房源
   hotInfo?: DiscountOrHotHomeType // 热门推荐的房源
   longforInfo?: LongForType // 向往城市
+  plusInfo?: RoomsType // plus房源
 }
 
 export default function Home(props: IProps) {
-  const { goodPriceInfo, highScoreInfo, discountInfo, hotInfo, longforInfo } =
-    props
+  const {
+    goodPriceInfo,
+    highScoreInfo,
+    discountInfo,
+    hotInfo,
+    longforInfo,
+    plusInfo
+  } = props
 
   return (
     <>
@@ -51,6 +60,9 @@ export default function Home(props: IProps) {
 
           {/* 高评分房源 */}
           <HomeSectionV2 homeSectionData={highScoreInfo} />
+
+          {/* Plus房源 */}
+          <HomeSectionV3 homeSectionData={plusInfo} />
         </div>
       </main>
     </>
@@ -73,7 +85,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   // 获取向往城市
   const res5 = await getHomeLongforData()
-  console.log(res5)
+
+  // 获取plus房源
+  const res6 = await getHomePlusData()
 
   return {
     props: {
@@ -81,7 +95,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       highScoreInfo: res2,
       discountInfo: res3,
       hotInfo: res4,
-      longforInfo: res5
+      longforInfo: res5,
+      plusInfo: res6
     }
   }
 }

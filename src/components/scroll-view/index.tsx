@@ -99,7 +99,7 @@ const ScrollView: FC<IProps> = memo(function (props) {
       {/* 插槽 */}
       {/* 添加动画 */}
       <div className="relative overflow-hidden">
-        <div className="flex transition duration-250 " ref={scrollContentRef}>
+        <div className="flex transition duration-250  " ref={scrollContentRef}>
           {children}
         </div>
       </div>

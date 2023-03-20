@@ -1,8 +1,7 @@
-import React from 'react'
-import { memo, ReactElement } from 'react'
-import type { FC } from 'react'
 import IconMoreArrow from '@/assets/svg/icon-more-arrow'
 import classNames from 'classnames'
+import { useRouter } from 'next/router'
+import type { FC } from 'react'
 
 export interface IProps {
   name?: string
@@ -17,14 +16,23 @@ const SectionFooter: FC<IProps> = function (props) {
     showMessage = `显示更多${name}房源`
   }
 
+  // 点击更多跳转
+  const router = useRouter()
+  function moreClickHandle() {
+    router.push('/entire')
+  }
+
   return (
     <div
       className={classNames('flex items-center mt-[15px]', {
         'text-secondary-color': name
       })}
     >
-      <div className="flex items-center cursor-pointer text-[17px] font-bold hover:underline gap-2 ">
-        <span className=" ">{showMessage}</span>
+      <div
+        className="flex items-center cursor-pointer text-[17px] font-bold hover:underline gap-2 "
+        onClick={moreClickHandle}
+      >
+        <span>{showMessage}</span>
         <IconMoreArrow />
       </div>
     </div>

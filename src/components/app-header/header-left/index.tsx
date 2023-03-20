@@ -1,13 +1,18 @@
 import IconLogo from '@/assets/svg/icon_logo'
+import { useRouter } from 'next/router'
 import type { FC } from 'react'
 
 export interface IProps {}
 
-// memo浅层比较
 const HeaderLeft: FC<IProps> = function (props) {
+  const router = useRouter()
+  function goHome() {
+    router.push('/')
+  }
+
   return (
     <div className="flex-1  flex text-primary-color  ml-5">
-      <div className="cursor-pointer">
+      <div className="cursor-pointer" onClick={goHome}>
         <IconLogo />
       </div>
     </div>

@@ -26,3 +26,8 @@ export const getHomeHotRecommendData = () => {
 export const getHomeLongforData = () => {
   return sxRequest.get<LongForType>('/home/longfor')
 }
+
+// 获取plus房源
+export const getHomePlusData = () => {
+  return sxRequest.get<any>('/home/plus')
+}

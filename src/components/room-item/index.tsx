@@ -16,12 +16,12 @@ const RoomItem: FC<IProps> = function (props) {
   const { itemData, width = '25%' } = props
 
   return (
-    <div className=" px-2 mt-5 " style={{ width: width }}>
+    <div className=" px-2 mt-5 flex-shrink-0 " style={{ width: width }}>
       {/* 图片 */}
       <div className=" relative pt-[66%]   ">
         {/* Image默认有绝对定位 */}
         <Image
-          className=" rounded-md"
+          className="rounded-md"
           src={itemData.picture_url}
           alt={itemData.name}
           fill
