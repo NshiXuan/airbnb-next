@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app'
 
-// 导入tailwindcss
+// 导入antd tailwindcss
+import 'antd/dist/reset.css'
 import '@/assets/css/tailwind.css'
 // 重置样式
 import 'normalize.css'

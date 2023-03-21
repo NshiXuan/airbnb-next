@@ -3,6 +3,7 @@ import { memo, ReactElement } from 'react'
 import type { FC } from 'react'
 import AppHeader from '@/components/app-header'
 import AppFooter from '@/components/app-footer/AppFooter'
+import Loading from '@/components/loading'
 
 export interface IProps {
   children?: ReactElement
@@ -17,6 +18,7 @@ const Layout: FC<IProps> = memo(function (props) {
       <AppHeader />
       {children}
       <AppFooter />
+      <Loading />
     </div>
   )
 })

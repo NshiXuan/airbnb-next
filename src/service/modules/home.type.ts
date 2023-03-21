@@ -10,6 +10,7 @@ export interface RoomsType {
 export interface HomeItem {
   id: string
   picture_url: string
+  picture_urls: string[]
   verify_info: VerifyInfo
   name: string
   price: number

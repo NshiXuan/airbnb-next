@@ -1,13 +1,13 @@
-import React from 'react'
-import { memo, ReactElement } from 'react'
-import type { FC } from 'react'
 import { HomeItem } from '@/service/modules/home.type'
+import type { FC } from 'react'
 import Image from 'next/image'
 
+import { EntireHomeItem } from '@/service/modules/entire.type'
 import { Rating } from '@mui/material'
+import { Carousel } from 'antd'
 
 export interface IProps {
-  itemData: HomeItem
+  itemData: EntireHomeItem | HomeItem
   width?: '20%' | '25%' | '33.33%' // 展示的宽度
 }
 
@@ -18,17 +18,36 @@ const RoomItem: FC<IProps> = function (props) {
   return (
     <div className=" px-2 mt-5 flex-shrink-0 " style={{ width: width }}>
       {/* 图片 */}
-      <div className=" relative pt-[66%]   ">
-        {/* Image默认有绝对定位 */}
-        <Image
-          className="rounded-md"
-          src={itemData.picture_url}
-          alt={itemData.name}
-          fill
-          sizes="(max-width: 768px) 100vw,
+      <div
+        className="relative"
+        style={!itemData.picture_urls ? { paddingTop: '66%' } : {}}
+      >
+        {itemData.picture_urls ? (
+          // 首页展示的Item图片
+          <Carousel autoplay>
+            {itemData.picture_urls.map((item) => {
+              return (
+                <div key={item}>
+                  <img
+                    className=" bottom-0 h-[200px] w-[100%] object-cover rounded-md "
+                    src={item}
+                  />
+                </div>
+              )
+            })}
+          </Carousel>
+        ) : (
+          // 如果是查看全部页面展示轮播图图片
+          <Image
+            className="rounded-md object-cover"
+            src={itemData.picture_url}
+            alt={itemData.name}
+            fill
+            sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
-        />
+          />
+        )}
       </div>
 
       {/* 描述 */}

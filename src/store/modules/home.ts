@@ -2,16 +2,18 @@ import { getHomeGoodPriceData } from "@/service/modules/home";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
 
-export interface IHomeInitialState {
+export interface IHome {
   goodPriceInfo: any
+}
+
+const initialState: IHome = {
+  goodPriceInfo: {}
 }
 
 // 1.创建slice
 const homeSlice = createSlice({
   name: "home",
-  initialState: {
-    goodPriceInfo: {}
-  } as IHomeInitialState,
+  initialState,
   reducers: {
     changeGoodPriceInfoAction(state, { payload }) {
       state.goodPriceInfo = payload

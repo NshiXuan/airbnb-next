@@ -11,7 +11,7 @@ const HeaderLeft: FC<IProps> = function (props) {
   }
 
   return (
-    <div className="flex-1  flex text-primary-color  ml-5">
+    <div className="flex-1 flex text-primary-color  ml-5">
       <div className="cursor-pointer" onClick={goHome}>
         <IconLogo />
       </div>

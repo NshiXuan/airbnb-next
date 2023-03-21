@@ -9,15 +9,15 @@ import {
   getHomePlusData
 } from '@/service/modules/home'
 
+import HomeLongFor from '@/components/home/home-longfor'
 import HomeSectionV1 from '@/components/home/home-section-v1'
 import HomeSectionV2 from '@/components/home/home-section-v2'
+import HomeSectionV3 from '@/components/home/home-section-v3'
 import {
   DiscountOrHotHomeType,
   LongForType,
   RoomsType
 } from '@/service/modules/home.type'
-import HomeLongFor from '@/components/home/home-longfor'
-import HomeSectionV3 from '@/components/home/home-section-v3'
 
 export interface IProps {
   goodPriceInfo?: RoomsType // 高性价比房源
