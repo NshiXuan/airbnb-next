@@ -1,0 +1,22 @@
+// 轮播图样式
+.swiper {
+  @apply cursor-pointer;
+
+  &:hover {
+    .control {
+      display: flex;
+    }
+  }
+
+  .control {
+    @apply absolute hidden text-white z-10 left-0 right-0 top-0 bottom-0  justify-between;
+
+    .left {
+      @apply flex justify-center items-center w-[50px] bg-gradient-to-l from-transparent to-[rgba(0,0,0,0.25)];
+    }
+
+    .right {
+      @apply flex justify-center items-center w-[50px] bg-gradient-to-r from-transparent to-[rgba(0,0,0,0.25)];
+    }
+  }
+}
