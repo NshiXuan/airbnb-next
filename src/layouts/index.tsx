@@ -1,9 +1,7 @@
-import React from 'react'
-import { memo, ReactElement } from 'react'
-import type { FC } from 'react'
-import AppHeader from '@/components/app-header'
 import AppFooter from '@/components/app-footer/AppFooter'
-import Loading from '@/components/loading'
+import AppHeader from '@/components/app-header'
+import type { FC } from 'react'
+import { memo, ReactElement } from 'react'
 
 export interface IProps {
   children?: ReactElement
@@ -18,7 +16,6 @@ const Layout: FC<IProps> = memo(function (props) {
       <AppHeader />
       {children}
       <AppFooter />
-      <Loading />
     </div>
   )
 })

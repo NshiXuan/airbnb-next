@@ -8,6 +8,7 @@ export interface RoomsType {
 }
 
 export interface HomeItem {
+  _id: string
   id: string
   picture_url: string
   picture_urls: string[]

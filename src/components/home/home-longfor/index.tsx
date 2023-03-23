@@ -17,7 +17,7 @@ const HomeLongFor: FC<IProps> = function (props) {
       <div className="flex -mx-2">
         <ScrollView>
           {infoData?.list.map((item) => {
-            return <LongForItem itemData={item} />
+            return <LongForItem itemData={item} key={item.city} />
           })}
         </ScrollView>
       </div>

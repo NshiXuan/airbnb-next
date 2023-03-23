@@ -25,13 +25,13 @@ const Demo: FC<IProps> = function (props) {
         <button onClick={(e) => toggleClickHandle(false)}>上一个</button>
         <button onClick={(e) => toggleClickHandle(true)}>下一个</button>
       </div>
-      <div>
+      <div className="w-[100px] overflow-hidden ">
         <Indicator selectIndex={selectIndex}>
           {names.map((item) => {
             return (
-              <button className="flex-grow-0 border" key={item}>
+              <div className="flex-shrink-0 border" key={item}>
                 {item}
-              </button>
+              </div>
             )
           })}
         </Indicator>

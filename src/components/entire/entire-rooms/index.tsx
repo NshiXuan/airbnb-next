@@ -1,7 +1,8 @@
 import RoomItem from '@/components/room-item'
 import { EntireHomeItem } from '@/service/modules/entire.type'
 import { HomeItem } from '@/service/modules/home.type'
-import type { FC } from 'react'
+import { useRouter } from 'next/router'
+import { FC, useCallback } from 'react'
 
 export interface IProps {
   roomList?: HomeItem[] | EntireHomeItem[]
@@ -11,6 +12,11 @@ export interface IProps {
 const EntireRooms: FC<IProps> = function (props) {
   const { roomList, totalCount } = props
 
+  const router = useRouter()
+  const itemClickHandle = useCallback((item: EntireHomeItem) => {
+    console.log(item)
+  }, [])
+
   return (
     <div className="p-6">
       <h2 className=" font-bold text-[22px] text-[#222] ">
@@ -18,7 +24,14 @@ const EntireRooms: FC<IProps> = function (props) {
       </h2>
       <div className="flex flex-wrap -mx-2 ">
         {roomList?.map((item) => {
-          return <RoomItem key={item.id} itemData={item} width={'20%'} />
+          return (
+            <RoomItem
+              key={item.id}
+              itemData={item}
+              width={'20%'}
+              itemClick={itemClickHandle}
+            />
+          )
         })}
       </div>
     </div>
