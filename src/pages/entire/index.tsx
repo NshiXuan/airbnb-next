@@ -3,7 +3,7 @@ import EntirePagination from '@/components/entire/entire-pagination'
 import EntireRooms from '@/components/entire/entire-rooms'
 import { getEntireRoomList } from '@/service/modules/entire'
 import { GetServerSideProps } from 'next'
-import type { FC } from 'react'
+import { FC } from 'react'
 
 import tabList from '@/assets/data/filter_data.json'
 import { EntireType } from '@/service/modules/entire.type'

@@ -1,8 +1,11 @@
 import RoomItem from '@/components/room-item'
 import { EntireHomeItem } from '@/service/modules/entire.type'
 import { HomeItem } from '@/service/modules/home.type'
+import { IDispatch } from '@/store'
+import { changeDetailInfo } from '@/store/modules/detail'
 import { useRouter } from 'next/router'
 import { FC, useCallback } from 'react'
+import { useDispatch } from 'react-redux'
 
 export interface IProps {
   roomList?: HomeItem[] | EntireHomeItem[]
@@ -13,8 +16,15 @@ const EntireRooms: FC<IProps> = function (props) {
   const { roomList, totalCount } = props
 
   const router = useRouter()
+  const dispatch: IDispatch = useDispatch()
   const itemClickHandle = useCallback((item: EntireHomeItem) => {
-    console.log(item)
+    // 1.把item存储到store中
+    dispatch(changeDetailInfo(item))
+
+    console.log('EntireRooms')
+
+    // 2.跳转到detail页面
+    router.push('/detail')
   }, [])
 
   return (

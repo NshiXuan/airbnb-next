@@ -3,12 +3,14 @@ import { createWrapper } from 'next-redux-wrapper'
 
 import homeReducer from './modules/home'
 import LoadingReducer from './modules/loading'
+import DetailReducer from './modules/detail'
 
 // 1.集成store
 const store = configureStore({
   reducer: {
     home: homeReducer,
     loading: LoadingReducer,
+    detail: DetailReducer,
   },
 })
 

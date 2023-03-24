@@ -1,18 +1,22 @@
-import React from "react"
-import { memo, ReactElement } from "react"
-import type { FC } from "react"
+import DetailInfo from '@/components/detail/detail-info'
+import DetailPicture from '@/components/detail/detail-picture'
+import { EntireHomeItem } from '@/service/modules/entire.type'
+import { IRootState } from '@/store'
+import type { FC } from 'react'
+import { memo } from 'react'
+import { useSelector } from 'react-redux'
 
 export interface IProps {
-  children?: ReactElement
+  detailInfo?: EntireHomeItem
 }
 
-// memo浅层比较
 const Detail: FC<IProps> = memo(function (props) {
-  // const { children } = props
+  const { detailInfo } = useSelector((state: IRootState) => state.detail)
 
   return (
     <div>
-      <h2>Detail</h2>
+      <DetailPicture pictureUrls={detailInfo?.picture_urls} />
+      <DetailInfo />
     </div>
   )
 })
@@ -20,4 +24,4 @@ const Detail: FC<IProps> = memo(function (props) {
 export default Detail
 
 // 设置一个方便调试的name 可以不写 默认为组件名称
-Detail.displayName = "Detail"
+Detail.displayName = 'Detail'

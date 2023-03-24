@@ -21,7 +21,9 @@ const HomeSectionV3: FC<IProps> = function (props) {
       <div className="-mx-2">
         <ScrollView>
           {homeSectionData?.list.map((item) => {
-            return <RoomItem itemData={item} width={'20%'} />
+            return (
+              <RoomItem itemData={item} width={'20%'} key={item.image_url} />
+            )
           })}
         </ScrollView>
       </div>

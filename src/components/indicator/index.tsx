@@ -2,6 +2,9 @@ import React, { useEffect, useRef } from 'react'
 import { ReactNode } from 'react'
 import type { FC } from 'react'
 
+import style from './index.module.scss'
+import classNames from 'classnames'
+
 export interface IProps {
   children?: ReactNode
   selectIndex?: number
@@ -43,8 +46,16 @@ const Indicator: FC<IProps> = function (props) {
   }, [selectIndex])
 
   return (
-    <div className="flex transition duration-200 ease-in-out  " ref={dotsRef}>
-      {children}
+    <div className="overflow-hidden">
+      <div
+        className={classNames(
+          'flex transition duration-200 ease-in-out ',
+          style.scroll
+        )}
+        ref={dotsRef}
+      >
+        {children}
+      </div>
     </div>
   )
 }

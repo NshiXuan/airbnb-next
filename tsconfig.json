@@ -28,7 +28,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/assets/svg/utils/index.js", "src/assets/svg/utils/index.js"  ],
   "exclude": [
     "node_modules"
   ]

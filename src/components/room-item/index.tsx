@@ -85,12 +85,12 @@ const RoomItem: FC<IProps> = function (props) {
       </Carousel>
 
       {/* dots */}
-      <div className=" absolute z-[999] bottom-2 left-0 right-0 mx-auto w-[40%] overflow-hidden ">
+      <div className=" absolute z-[100] bottom-2 left-0 right-0 mx-auto w-[40%] ">
         <Indicator selectIndex={selectIndex}>
           {itemData.picture_urls?.map((item, index) => {
             return (
               <div
-                className="flex flex-shrink-0  justify-center items-center w-[14.28%]"
+                className="flex justify-center items-center w-[14.28%]"
                 key={item}
               >
                 <span
@@ -114,11 +114,7 @@ const RoomItem: FC<IProps> = function (props) {
   )
 
   return (
-    <div
-      className=" px-2 mt-5 flex-shrink-0 "
-      style={{ width: width }}
-      onClick={itemClickHandle}
-    >
+    <div className=" px-2 mt-5 flex-shrink-0 " style={{ width: width }}>
       {/* 图片 */}
       <div
         className="relative"
@@ -128,12 +124,17 @@ const RoomItem: FC<IProps> = function (props) {
       </div>
 
       {/* 描述 */}
-      <div className="text-[#39576a] text-[12px] mt-[10px] mb-[5px] font-bold ">
+      <div className="text-[#39576a] text-[12px] mt-[10px] mb-[5px] font-bold  ">
         {itemData.verify_info.messages.join(' · ')}
       </div>
 
       {/* 名称 价格 */}
-      <div className="font-bold line-clamp-2">{itemData.name}</div>
+      <div
+        className="font-bold line-clamp-2 cursor-pointer"
+        onClick={itemClickHandle}
+      >
+        {itemData.name}
+      </div>
       <div className="text-[12px] mt-2 ">￥{itemData.price}/晚</div>
 
       {/* 评分 */}

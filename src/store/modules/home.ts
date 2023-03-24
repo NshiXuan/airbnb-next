@@ -39,7 +39,6 @@ const homeSlice = createSlice({
 // 3.封装请求的异步Action并导出
 export const fetchHomeDateAction = createAsyncThunk('fetchdata', async () => {
   const res = await getHomeGoodPriceData()
-  // console.log(res)
   return res
 })
 
