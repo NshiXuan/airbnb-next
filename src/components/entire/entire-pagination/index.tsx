@@ -1,17 +1,29 @@
-import React from 'react'
-import { ReactNode } from 'react'
+import { getEntireRoomList } from '@/service/modules/entire'
+import Pagination from '@mui/material/Pagination'
 import type { FC } from 'react'
 
 export interface IProps {
-  children?: ReactNode
+  totalCount?: number
 }
 
 const EntirePagination: FC<IProps> = function (props) {
-  const { children } = props
+  const { totalCount } = props
+
+  // 计算页面总数
+  const pageCount = totalCount! / 20
+
+  function pageChangeHandle(event: any, newPage: number) {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+    console.log(newPage)
+    getEntireRoomList(newPage - 1)
+  }
 
   return (
-    <div>
-      <h2>EntirePagination</h2>
+    <div className="flex items-center justify-center">
+      <Pagination count={pageCount} onChange={pageChangeHandle} />
     </div>
   )
 }

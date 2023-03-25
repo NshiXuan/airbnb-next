@@ -27,15 +27,17 @@ const Indicator: FC<IProps> = function (props) {
     // 5.获取dots本身的宽度
     const dotsWidth = dotsRef.current?.clientWidth!
 
-    // 5.计算滚动的的距离
-    // let distance = itemLeft + itemWidth * 0.5 - dotsWidth
-    let distance = itemLeft + itemWidth - dotsWidth
+    // 6.计算滚动的的距离
+    // 如果使用这个计算距离 长度大时会居中高亮
+    let distance = itemLeft + itemWidth * 0.5 - dotsWidth * 0.5
+    // 如果使用这个计算距离 长度大时不会居中高亮
+    // let distance = itemLeft + itemWidth - dotsWidth
 
-    // 6.计算可滚动的总距离
+    // 7.计算可滚动的总距离
     const dotsScroll = dotsRef.current?.scrollWidth!
     const totalDistance = dotsScroll - dotsWidth
 
-    // 7.边界判断
+    // 8.边界判断
     // 左边边界判断
     if (distance < 0) distance = 0
     // 右边边界判断

@@ -17,6 +17,8 @@ const PictrueBrowser: FC<IProps> = function (props) {
 
   // 记录当前浏览的图片
   const [currentIndex, setCurrentIndex] = useState(0)
+  // 控制是否展示指示器
+  const [showList, setShowList] = useState(true)
 
   // 当图片展示出来 让滚动功能消失
   useEffect(() => {
@@ -87,14 +89,17 @@ const PictrueBrowser: FC<IProps> = function (props) {
               </span>
               <span>room apartment图片{currentIndex + 1}</span>
             </div>
-            <div className="flex items-center cursor-pointer ">
+            <div
+              className="flex items-center cursor-pointer "
+              onClick={(e) => setShowList(!showList)}
+            >
               <span>隐藏图片列表</span>
               <IconTriangleBottom />
             </div>
           </div>
 
           {/* 图片列表 */}
-          <div className="mt-2">
+          <div className="mt-2 h-[0] ">
             <Indicator selectIndex={currentIndex}>
               {pictureUrls?.map((item, index) => {
                 return (

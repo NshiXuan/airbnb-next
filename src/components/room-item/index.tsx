@@ -27,7 +27,7 @@ const RoomItem: FC<IProps> = function (props) {
   // 点击箭头切换图片
   // 1.获取轮播图的Ref
   const carouselRef = useRef<CarouselRef>(null)
-  function controlClickHandle(isNext: boolean) {
+  function controlClickHandle(isNext: boolean, event: any) {
     isNext ? carouselRef.current?.next() : carouselRef.current?.prev()
 
     // 1.如果点击下一个 index+1 上一个-1
@@ -38,6 +38,9 @@ const RoomItem: FC<IProps> = function (props) {
     // 3.如果大于最后一个 index设为第一个
     if (newIndex > len - 1) newIndex = 0
     setSelectIndex(newIndex)
+
+    // 4.阻止事件冒泡
+    event.stopPropagation()
   }
 
   function itemClickHandle() {
@@ -62,10 +65,16 @@ const RoomItem: FC<IProps> = function (props) {
     <div className={style.swiper}>
       {/* 滚动箭头 */}
       <div className={style.control}>
-        <div className={style.left} onClick={(e) => controlClickHandle(false)}>
+        <div
+          className={style.left}
+          onClick={(e) => controlClickHandle(false, e)}
+        >
           <IconArrowLeft width={20} height={20} />
         </div>
-        <div className={style.right} onClick={(e) => controlClickHandle(true)}>
+        <div
+          className={style.right}
+          onClick={(e) => controlClickHandle(true, e)}
+        >
           <IconArrowRight width={20} height={20} />
         </div>
       </div>
@@ -114,7 +123,11 @@ const RoomItem: FC<IProps> = function (props) {
   )
 
   return (
-    <div className=" px-2 mt-5 flex-shrink-0 " style={{ width: width }}>
+    <div
+      className=" px-2 mt-5 flex-shrink-0 "
+      style={{ width: width }}
+      onClick={itemClickHandle}
+    >
       {/* 图片 */}
       <div
         className="relative"
@@ -129,10 +142,7 @@ const RoomItem: FC<IProps> = function (props) {
       </div>
 
       {/* 名称 价格 */}
-      <div
-        className="font-bold line-clamp-2 cursor-pointer"
-        onClick={itemClickHandle}
-      >
+      <div className="font-bold line-clamp-2 cursor-pointer">
         {itemData.name}
       </div>
       <div className="text-[12px] mt-2 ">￥{itemData.price}/晚</div>

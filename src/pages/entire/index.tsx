@@ -23,7 +23,7 @@ const Entire: FC<IProps> = function (props) {
         roomList={entireData?.list}
         totalCount={entireData?.totalCount}
       />
-      <EntirePagination />
+      <EntirePagination totalCount={entireData?.totalCount} />
     </div>
   )
 }
