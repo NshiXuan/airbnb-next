@@ -13,10 +13,20 @@ import wrapper from '@/store'
 
 // 布局
 import Layout from '@/layouts'
+import { useEffect } from 'react'
 
 export default function App({ Component, ...rest }: AppProps) {
   // 1.Redux注入
   const { store, props } = wrapper.useWrappedStore(rest)
+
+  // ssr 服务端不能使用window
+  // const location = window.location
+  // console.log("🚀 ~ file: _app.tsx:22 ~ App ~ location:", location)
+
+  // useEffect(() => {
+  //   window.scrollTo(0, 0)
+  //   console.log("🚀 ~ file: _app.tsx:28 ~ useEffect ~ window.scrollY:", window.scrollY)
+  // }, [])
 
   return (
     <Provider store={store}>

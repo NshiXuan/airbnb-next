@@ -18,6 +18,10 @@ import {
   LongForType,
   RoomsType
 } from '@/service/modules/home.type'
+import { useDispatch } from 'react-redux'
+import { IDispatch } from '@/store'
+import { useEffect } from 'react'
+import { changeHeaderConfigAction } from '@/store/modules/main'
 
 export interface IProps {
   goodPriceInfo?: RoomsType // 高性价比房源
@@ -37,6 +41,11 @@ export default function Home(props: IProps) {
     longforInfo,
     plusInfo
   } = props
+
+  const dispatch: IDispatch = useDispatch()
+  useEffect(() => {
+    dispatch(changeHeaderConfigAction({ isFixed: true }))
+  }, [])
 
   return (
     <>

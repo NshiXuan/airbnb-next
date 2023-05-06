@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { createWrapper } from 'next-redux-wrapper'
 
+import mainReducer from './modules/main'
 import homeReducer from './modules/home'
 import LoadingReducer from './modules/loading'
 import DetailReducer from './modules/detail'
@@ -8,6 +9,7 @@ import DetailReducer from './modules/detail'
 // 1.集成store
 const store = configureStore({
   reducer: {
+    main: mainReducer,
     home: homeReducer,
     loading: LoadingReducer,
     detail: DetailReducer,

@@ -25,7 +25,7 @@ const EntireFilter: FC<IProps> = function (props) {
   }
 
   return (
-    <div className="flex items-center h-12 pl-4 border-b bg-white">
+    <div className="flex items-center h-12 pl-4 border-b bg-white fixed top-[80px] left-0 right-0  z-[999]">
       {tabList?.map((item, index) => {
         return (
           <div

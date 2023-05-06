@@ -1,13 +1,16 @@
+import { GetServerSideProps } from 'next'
+import { FC, useEffect } from 'react'
+
 import EntireFilter from '@/components/entire/entire-filter'
 import EntirePagination from '@/components/entire/entire-pagination'
 import EntireRooms from '@/components/entire/entire-rooms'
 import { getEntireRoomList } from '@/service/modules/entire'
-import { GetServerSideProps } from 'next'
-import { FC } from 'react'
 
 import tabList from '@/assets/data/filter_data.json'
 import { EntireType } from '@/service/modules/entire.type'
-import wrapper from '@/store'
+import wrapper, { IDispatch } from '@/store'
+import { changeHeaderConfigAction } from '@/store/modules/main'
+import { useDispatch } from 'react-redux'
 
 export interface IProps {
   entireData?: EntireType
@@ -16,8 +19,13 @@ export interface IProps {
 const Entire: FC<IProps> = function (props) {
   const { entireData } = props
 
+  const dispatch: IDispatch = useDispatch()
+  useEffect(() => {
+    dispatch(changeHeaderConfigAction({ isFixed: true }))
+  }, [])
+
   return (
-    <div className="">
+    <div className="mt-[128px]">
       <EntireFilter tabList={tabList} />
       <EntireRooms
         roomList={entireData?.list}

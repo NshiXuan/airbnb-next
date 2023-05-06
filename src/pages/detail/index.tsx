@@ -1,10 +1,11 @@
 import DetailInfo from '@/components/detail/detail-info'
 import DetailPicture from '@/components/detail/detail-picture'
 import { EntireHomeItem } from '@/service/modules/entire.type'
-import { IRootState } from '@/store'
-import type { FC } from 'react'
+import { IDispatch, IRootState } from '@/store'
+import { changeHeaderConfigAction } from '@/store/modules/main'
+import { FC, useEffect } from 'react'
 import { memo } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 export interface IProps {
   detailInfo?: EntireHomeItem
@@ -12,6 +13,11 @@ export interface IProps {
 
 const Detail: FC<IProps> = memo(function (props) {
   const { detailInfo } = useSelector((state: IRootState) => state.detail)
+
+  const dispatch: IDispatch = useDispatch()
+  useEffect(() => {
+    dispatch(changeHeaderConfigAction({ isFixed: false }))
+  }, [])
 
   return (
     <div>

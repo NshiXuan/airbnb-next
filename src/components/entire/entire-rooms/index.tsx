@@ -21,8 +21,6 @@ const EntireRooms: FC<IProps> = function (props) {
     // 1.把item存储到store中
     dispatch(changeDetailInfo(item))
 
-    console.log('EntireRooms')
-
     // 2.跳转到detail页面
     router.push('/detail')
   }, [])
@@ -52,3 +50,5 @@ export default EntireRooms
 
 // 设置一个方便调试的name 可以不写 默认为组件名称
 EntireRooms.displayName = 'EntireRooms'
+
+// parseFloat
