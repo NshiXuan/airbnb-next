@@ -29,7 +29,7 @@ const EntireFilter: FC<IProps> = function (props) {
       {tabList?.map((item, index) => {
         return (
           <div
-            className=" mx-2 py-[6px] px-3 border text-font-primary-color cursor-pointer rounded "
+            className="mx-2 py-[6px] px-3 border text-font-primary-color cursor-pointer rounded "
             onClick={(e) => itemClickHandle(item)}
             style={
               selectItems.includes(item)

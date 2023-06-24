@@ -16,6 +16,10 @@
   @apply flex items-center justify-center p-3 cursor-pointer rounded-[22px] hover:bg-[#f5f5f5];
 }
 
+.hover-btn {
+  @apply flex items-center justify-center p-3 cursor-pointer rounded-[22px] hover:bg-[rgba(255,255,255,.1)];
+}
+
 .boxShadow {
   @apply transition  duration-300 ease-in-out hover:shadow-lg;
 }

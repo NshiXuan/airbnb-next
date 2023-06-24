@@ -10,11 +10,12 @@ import IconMenu from '@/assets/svg/icon_menu'
 import style from './style.module.scss'
 
 export interface IProps {
-  children?: ReactElement
+  isAlpha?: boolean
 }
 
 // memo浅层比较
 const HeaderRight: FC<IProps> = function (props) {
+  const { isAlpha } = props
   // 1.定义展示隐藏面板的变量
   const [showPanel, setShowPanel] = useState(false)
 
@@ -40,18 +41,22 @@ const HeaderRight: FC<IProps> = function (props) {
   }, [])
 
   return (
-    <div className="flex-1 flex justify-end items-center text-font-primary-color">
-      <div className="flex h-[18px] text-[14px] font-[600]">
-        <span className="btn">登录</span>
-        <span className="btn">注册</span>
-        <span className="btn">
+    <div className={`flex-1 flex justify-end items-center  `}>
+      <div
+        className={`flex h-[18px] text-[14px] font-[600] ${
+          isAlpha ? 'text-white' : 'text-font-primary-color'
+        }`}
+      >
+        <span className={`${isAlpha ? 'hover-btn' : 'btn'}`}>登录</span>
+        <span className={`${isAlpha ? 'hover-btn' : 'btn'}`}>注册</span>
+        <span className={`${isAlpha ? 'hover-btn' : 'btn'}`}>
           <IconGlobal />
         </span>
       </div>
 
       {/* 个人中心 */}
       <div
-        className=" relative flex mr-6 items-center w-[77px] h-[42px] justify-evenly box-border border rounded-[25px] cursor-pointer boxShadow"
+        className={`relative flex mr-6 items-center w-[77px] h-[42px] justify-evenly box-border border rounded-[25px] cursor-pointer boxShadow bg-white `}
         onClick={profileClickHandle}
       >
         {/* 登录icon */}

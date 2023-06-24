@@ -50,7 +50,7 @@ const RoomItem: FC<IProps> = function (props) {
   // home页面展示的图片
   const imgElement = (
     <Image
-      className="rounded-md object-cover transition duration-500 transform hover:scale-110 cursor-pointer "
+      className=" object-cover transition duration-500 transform hover:scale-110 cursor-pointer "
       src={itemData.picture_url}
       alt={itemData.name}
       fill
@@ -130,7 +130,7 @@ const RoomItem: FC<IProps> = function (props) {
     >
       {/* 图片 */}
       <div
-        className="relative overflow-hidden "
+        className="relative overflow-hidden rounded-md "
         style={!itemData.picture_urls ? { paddingTop: '66%' } : {}}
       >
         {itemData.picture_urls ? swiperElement : imgElement}

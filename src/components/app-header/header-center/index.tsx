@@ -1,5 +1,5 @@
 import SearchTitles from '@/assets/data/search_titles.json'
-import { FC, useState } from 'react'
+import { FC, useRef, useState } from 'react'
 import { memo } from 'react'
 import SearchTabs from './search-tabs'
 import SearchSections from './search-sections'
@@ -7,12 +7,14 @@ import IconSearchBar from '@/assets/svg/icon-search-bar'
 
 export interface IProps {
   isSearch?: boolean
+  isAlpha?: boolean
   searchBarClick?: () => void
 }
 
 // memo浅层比较
 const HeaderCenter: FC<IProps> = memo(function (props) {
-  const { isSearch, searchBarClick } = props
+  // 是否打开搜索栏
+  const { isSearch, isAlpha, searchBarClick } = props
 
   const titles = SearchTitles.map((item) => item.title)
 
@@ -26,7 +28,7 @@ const HeaderCenter: FC<IProps> = memo(function (props) {
     <div>
       {!isSearch ? (
         <div
-          className="flex justify-between items-center w-[300px] h-12 p-2 box-border border rounded-3xl cursor-pointer boxShadow"
+          className={`flex justify-between items-center w-[300px] h-12 p-2 box-border border rounded-3xl cursor-pointer boxShadow `}
           onClick={handleSearchBarClick}
         >
           <div className="px-4 text-font-secondary-color font-[600]">
@@ -38,9 +40,13 @@ const HeaderCenter: FC<IProps> = memo(function (props) {
           </div>
         </div>
       ) : (
-        <div className="relative">
+        <div className={`relative  ${isAlpha && 'text-white'}`}>
           <SearchTabs titles={titles} tabClick={setTabIndex}></SearchTabs>
-          <div className=" absolute top-[60px] left-1/2 -translate-x-1/2 border px-8 py-4 rounded-full ">
+          <div
+            className={`absolute bg-white text-gray-500 ${
+              isSearch ? 'opacity-100' : 'opacity-0'
+            }  duration-300  top-[60px] left-1/2 -translate-x-1/2 border px-8 py-4 rounded-full `}
+          >
             <SearchSections searchInfo={SearchTitles[tabIndex].searchInfos} />
           </div>
         </div>
